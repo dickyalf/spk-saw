@@ -123,8 +123,10 @@ server/
 ### Bagaimana test ter-isolasi
 
 - `globalSetup` menjalankan **satu** instance MongoDB in-memory untuk SEMUA test.
-- Setelah setiap test (`afterEach`), semua collection di-drop → test berikutnya mulai bersih.
-- Tiap helper `registerPerusahaan` / `registerPelamar` memakai email unik (timestamp + counter), jadi tidak ada konflik.
+- `setupFilesAfterEnv` mendaftarkan hook `afterEach` global yang drop semua collection.
+  - Catatan: nama option Jest yang benar adalah `setupFilesAfterEnv` (bukan `setupFilesAfterEach`).
+- Setelah setiap test, semua collection di-drop → test berikutnya mulai bersih.
+- Tiap helper `registerPerusahaan` / `registerPelamar` memakai email unik (timestamp + counter), jadi defensive tambahan agar tidak ada konflik bahkan tanpa cleanup.
 
 ---
 

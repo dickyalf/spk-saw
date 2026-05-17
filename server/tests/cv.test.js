@@ -26,11 +26,12 @@ describe('CV — Upsert Manual', () => {
   });
 
   test('✅ PUT /cv/manual saat sudah ada → update (tidak duplikat)', async () => {
-    const { token } = await registerPelamar(app);
+    const { token, pelamar } = await registerPelamar(app);
     await request(app).put('/api/cv/manual').set(auth(token)).send({ ringkasan: 'V1' });
     await request(app).put('/api/cv/manual').set(auth(token)).send({ ringkasan: 'V2' });
-    const all = await CV.countDocuments();
-    expect(all).toBe(1);
+    // Hitung HANYA CV milik pelamar ini, supaya tidak bergantung pada DB cleanup global
+    const count = await CV.countDocuments({ pelamar: pelamar._id });
+    expect(count).toBe(1);
     const res = await request(app).get('/api/cv/me').set(auth(token));
     expect(res.body.ringkasan).toBe('V2');
   });
