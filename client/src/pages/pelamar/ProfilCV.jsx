@@ -99,7 +99,7 @@ export default function ProfilCV() {
         <div className="flex justify-between items-center">
           <div>
             <h3 className="font-semibold">CV</h3>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-content-muted">
               Upload CV (PDF) untuk auto-parsing dengan AI, atau isi manual di bawah.
             </p>
             {cv.sumber && (
@@ -233,7 +233,7 @@ function Section({ title, items, render, onAdd, onRemove }) {
       </div>
       <div className="space-y-3">
         {items.map((it, i) => (
-          <div key={i} className="border border-slate-200 rounded-lg p-3 relative">
+          <div key={i} className="border border-surface-border rounded-lg p-3 relative">
             {render(it, i)}
             <button
               type="button"
@@ -244,7 +244,7 @@ function Section({ title, items, render, onAdd, onRemove }) {
             </button>
           </div>
         ))}
-        {items.length === 0 && <div className="text-sm text-slate-400">Belum ada data</div>}
+        {items.length === 0 && <div className="text-sm text-content-subtle">Belum ada data</div>}
       </div>
     </div>
   );

@@ -46,15 +46,15 @@ export default function Notifikasi() {
             />
             <div className="flex-1">
               <div className="font-medium">{n.judul}</div>
-              <div className="text-sm text-slate-600">{n.pesan}</div>
-              <div className="text-xs text-slate-400 mt-1">
+              <div className="text-sm text-content-muted">{n.pesan}</div>
+              <div className="text-xs text-content-subtle mt-1">
                 {new Date(n.createdAt).toLocaleString('id-ID')}
               </div>
             </div>
           </Link>
         ))}
         {items.length === 0 && (
-          <div className="text-center text-slate-500 py-8">Belum ada notifikasi.</div>
+          <div className="text-center text-content-muted py-8">Belum ada notifikasi.</div>
         )}
       </div>
     </div>

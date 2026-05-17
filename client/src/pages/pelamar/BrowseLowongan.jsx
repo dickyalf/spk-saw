@@ -15,7 +15,7 @@ export default function BrowseLowongan() {
     <div>
       <h1 className="text-xl font-bold mb-4">Cari Lowongan</h1>
       <div className="relative mb-4">
-        <Search className="absolute left-3 top-3 text-slate-400" size={18} />
+        <Search className="absolute left-3 top-3 text-content-subtle" size={18} />
         <input
           className="input pl-10"
           placeholder="Cari posisi, perusahaan..."
@@ -30,10 +30,10 @@ export default function BrowseLowongan() {
             key={l._id}
             className="card hover:border-brand-500 transition"
           >
-            <div className="text-sm text-slate-500">{l.perusahaan?.namaPerusahaan}</div>
+            <div className="text-sm text-content-muted">{l.perusahaan?.namaPerusahaan}</div>
             <div className="font-semibold">{l.judul}</div>
-            <div className="text-xs text-slate-500 mt-1">{l.posisi}</div>
-            <div className="flex items-center gap-3 mt-2 text-sm text-slate-600">
+            <div className="text-xs text-content-muted mt-1">{l.posisi}</div>
+            <div className="flex items-center gap-3 mt-2 text-sm text-content-muted">
               <span className="flex items-center gap-1">
                 <Briefcase size={14} /> {l.tipeKerja}
               </span>
@@ -44,7 +44,7 @@ export default function BrowseLowongan() {
           </Link>
         ))}
         {items.length === 0 && (
-          <div className="col-span-2 text-center text-slate-500 py-8">
+          <div className="col-span-2 text-center text-content-muted py-8">
             Tidak ada lowongan yang cocok
           </div>
         )}

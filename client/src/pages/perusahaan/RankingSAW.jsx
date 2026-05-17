@@ -41,7 +41,7 @@ export default function RankingSAW() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-xl font-bold">Ranking SAW</h1>
-          <div className="text-sm text-slate-500">
+          <div className="text-sm text-content-muted">
             {data.lowongan.judul} — {data.lowongan.posisi}
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function RankingSAW() {
         <h3 className="font-semibold mb-2">Kriteria & Bobot</h3>
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-500 border-b">
+            <tr className="text-left text-content-muted border-b">
               <th className="py-2">Kode</th>
               <th>Nama</th>
               <th>Kategori</th>
@@ -85,7 +85,7 @@ export default function RankingSAW() {
         <h3 className="font-semibold mb-2">Hasil Pemeringkatan</h3>
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-500 border-b">
+            <tr className="text-left text-content-muted border-b">
               <th className="py-2 w-12">#</th>
               <th>Nama</th>
               {data.kriteria.map((k) => (
@@ -112,7 +112,7 @@ export default function RankingSAW() {
                 </td>
                 <td>
                   <div className="font-medium">{h.nama}</div>
-                  <div className="text-xs text-slate-500">{h.email}</div>
+                  <div className="text-xs text-content-muted">{h.email}</div>
                 </td>
                 {h.nilai.map((v, i) => (
                   <td key={i} className="text-center">
@@ -139,7 +139,7 @@ export default function RankingSAW() {
             ))}
             {data.hasil.length === 0 && (
               <tr>
-                <td colSpan={4 + data.kriteria.length} className="py-8 text-center text-slate-500">
+                <td colSpan={4 + data.kriteria.length} className="py-8 text-center text-content-muted">
                   Belum ada pelamar untuk diperingkatkan
                 </td>
               </tr>

@@ -18,7 +18,7 @@ export default function AdminPelamar() {
       <div className="card overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-500 border-b">
+            <tr className="text-left text-content-muted border-b">
               <th className="py-2">Nama</th>
               <th>Email</th>
               <th>Kota</th>

@@ -122,7 +122,7 @@ export default function LowonganForm() {
           <div className="card">
             <h3 className="font-semibold mb-3">Pilih Soal Tes</h3>
             {soalAll.length === 0 && (
-              <div className="text-sm text-slate-500">
+              <div className="text-sm text-content-muted">
                 Belum ada soal. Buat dulu di menu "Soal Tes".
               </div>
             )}

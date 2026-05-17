@@ -30,7 +30,7 @@ export default function PerusahaanDashboard() {
                 {s.icon}
               </div>
               <div>
-                <div className="text-sm text-slate-500">{s.label}</div>
+                <div className="text-sm text-content-muted">{s.label}</div>
                 <div className="text-2xl font-bold">{s.value}</div>
               </div>
             </div>
@@ -50,16 +50,16 @@ export default function PerusahaanDashboard() {
             <Link
               key={l._id}
               to={`/perusahaan/lowongan/${l._id}/pelamar`}
-              className="flex justify-between items-center p-3 hover:bg-slate-50 rounded-lg"
+              className="flex justify-between items-center p-3 hover:bg-surface-subtle rounded-lg"
             >
               <div>
                 <div className="font-medium">{l.judul}</div>
-                <div className="text-xs text-slate-500">{l.posisi} · {l.lokasi}</div>
+                <div className="text-xs text-content-muted">{l.posisi} · {l.lokasi}</div>
               </div>
-              <span className="badge bg-slate-100 capitalize">{l.status}</span>
+              <span className="badge bg-surface-muted capitalize">{l.status}</span>
             </Link>
           ))}
-          {lowongan.length === 0 && <div className="text-slate-500 text-sm">Belum ada lowongan</div>}
+          {lowongan.length === 0 && <div className="text-content-muted text-sm">Belum ada lowongan</div>}
         </div>
       </div>
     </div>

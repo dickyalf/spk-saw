@@ -41,7 +41,7 @@ export default function LowonganList() {
       <div className="card overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-500 border-b">
+            <tr className="text-left text-content-muted border-b">
               <th className="py-2">Judul</th>
               <th>Posisi</th>
               <th>Lokasi</th>
@@ -85,7 +85,7 @@ export default function LowonganList() {
               </tr>
             ))}
             {items.length === 0 && (
-              <tr><td colSpan={6} className="py-8 text-center text-slate-500">Belum ada lowongan</td></tr>
+              <tr><td colSpan={6} className="py-8 text-center text-content-muted">Belum ada lowongan</td></tr>
             )}
           </tbody>
         </table>

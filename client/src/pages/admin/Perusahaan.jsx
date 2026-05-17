@@ -25,7 +25,7 @@ export default function AdminPerusahaan() {
       <div className="card overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-500 border-b">
+            <tr className="text-left text-content-muted border-b">
               <th className="py-2">Perusahaan</th>
               <th>Email</th>
               <th>Verifikasi</th>
@@ -38,7 +38,7 @@ export default function AdminPerusahaan() {
               <tr key={p._id} className="border-b last:border-0">
                 <td className="py-3">
                   <div className="font-medium">{p.namaPerusahaan}</div>
-                  <div className="text-xs text-slate-500">{p.industri}</div>
+                  <div className="text-xs text-content-muted">{p.industri}</div>
                 </td>
                 <td>{p.user?.email}</td>
                 <td><StatBadge status={p.statusVerifikasi} /></td>

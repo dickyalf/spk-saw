@@ -32,9 +32,9 @@ export default function DetailLowonganPelamar() {
   return (
     <div className="max-w-3xl space-y-4">
       <div className="card">
-        <div className="text-sm text-slate-500">{l.perusahaan?.namaPerusahaan}</div>
+        <div className="text-sm text-content-muted">{l.perusahaan?.namaPerusahaan}</div>
         <h1 className="text-2xl font-bold mb-2">{l.judul}</h1>
-        <div className="flex gap-3 text-sm text-slate-600 mb-4">
+        <div className="flex gap-3 text-sm text-content-muted mb-4">
           <span>{l.posisi}</span> · <span>{l.tipeKerja}</span> · <span>{l.lokasi}</span>
         </div>
         {l.deskripsi && <Section title="Deskripsi" content={l.deskripsi} />}
@@ -60,7 +60,7 @@ export default function DetailLowonganPelamar() {
         <button onClick={lamar} className="btn-primary w-full" disabled={busy}>
           {busy ? 'Mengirim...' : 'Kirim Lamaran'}
         </button>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-content-muted">
           Lamaran Anda akan dikirim beserta CV yang sudah Anda isi di profil.
         </p>
       </div>
@@ -72,7 +72,7 @@ function Section({ title, content }) {
   return (
     <div className="mb-3">
       <h3 className="font-semibold">{title}</h3>
-      <p className="text-slate-600 whitespace-pre-line">{content}</p>
+      <p className="text-content-muted whitespace-pre-line">{content}</p>
     </div>
   );
 }

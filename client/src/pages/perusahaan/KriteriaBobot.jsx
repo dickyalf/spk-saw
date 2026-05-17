@@ -95,7 +95,7 @@ export default function KriteriaBobot() {
         </div>
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-500 border-b">
+            <tr className="text-left text-content-muted border-b">
               <th className="py-2 w-16">Kode</th>
               <th>Nama Kriteria</th>
               <th className="w-32">Kategori</th>
@@ -175,7 +175,7 @@ export default function KriteriaBobot() {
             >
               {total.toFixed(2)}
             </span>{' '}
-            <span className="text-slate-500">
+            <span className="text-content-muted">
               (idealnya 1.00, namun akan dinormalisasi otomatis)
             </span>
           </div>
@@ -185,7 +185,7 @@ export default function KriteriaBobot() {
         </div>
       </div>
 
-      <div className="card text-sm text-slate-600">
+      <div className="card text-sm text-content-muted">
         <h4 className="font-semibold mb-1">Catatan tentang SAW:</h4>
         <ul className="list-disc pl-5 space-y-1">
           <li><b>Benefit</b>: semakin besar nilai, semakin baik (mis. nilai tes).</li>

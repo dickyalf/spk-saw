@@ -30,7 +30,7 @@ export default function PelamarMasuk() {
       <div className="card overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-500 border-b">
+            <tr className="text-left text-content-muted border-b">
               <th className="py-2">Pelamar</th>
               <th>Tanggal</th>
               <th>Status</th>
@@ -45,7 +45,7 @@ export default function PelamarMasuk() {
               <tr key={l._id} className="border-b last:border-0">
                 <td className="py-3">
                   <div className="font-medium">{l.pelamar?.namaLengkap}</div>
-                  <div className="text-xs text-slate-500">{l.pelamar?.user?.email}</div>
+                  <div className="text-xs text-content-muted">{l.pelamar?.user?.email}</div>
                 </td>
                 <td>{new Date(l.createdAt).toLocaleDateString('id-ID')}</td>
                 <td><StatBadge status={l.statusKeseluruhan} /></td>
@@ -84,7 +84,7 @@ export default function PelamarMasuk() {
               </tr>
             ))}
             {items.length === 0 && (
-              <tr><td colSpan={7} className="py-8 text-center text-slate-500">Belum ada pelamar</td></tr>
+              <tr><td colSpan={7} className="py-8 text-center text-content-muted">Belum ada pelamar</td></tr>
             )}
           </tbody>
         </table>

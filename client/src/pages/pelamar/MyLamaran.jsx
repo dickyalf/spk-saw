@@ -21,7 +21,7 @@ export default function MyLamaran() {
           >
             <div>
               <div className="font-medium">{l.lowongan?.judul}</div>
-              <div className="text-xs text-slate-500">
+              <div className="text-xs text-content-muted">
                 {l.lowongan?.posisi} · Dilamar {new Date(l.createdAt).toLocaleDateString('id-ID')}
               </div>
             </div>
@@ -29,7 +29,7 @@ export default function MyLamaran() {
           </Link>
         ))}
         {items.length === 0 && (
-          <div className="text-center text-slate-500 py-8">Belum ada lamaran</div>
+          <div className="text-center text-content-muted py-8">Belum ada lamaran</div>
         )}
       </div>
     </div>

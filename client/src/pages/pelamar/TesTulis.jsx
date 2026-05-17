@@ -69,12 +69,12 @@ export default function TesTulis() {
 
       {data.soal.map((s, i) => (
         <div key={s._id} className="card">
-          <div className="text-xs text-slate-400 mb-1">Soal {i + 1} · {s.kategori}</div>
+          <div className="text-xs text-content-subtle mb-1">Soal {i + 1} · {s.kategori}</div>
           <div className="font-medium mb-3">{s.pertanyaan}</div>
           {s.jenis === 'pilihan_ganda' ? (
             <div className="space-y-2">
               {s.pilihan.map((p, j) => (
-                <label key={j} className="flex items-center gap-2 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                <label key={j} className="flex items-center gap-2 p-2 rounded hover:bg-surface-subtle cursor-pointer">
                   <input
                     type="radio"
                     name={s._id}

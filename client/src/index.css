@@ -1,33 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* === Design tokens ===
+   Variabel RGB (tanpa "rgb(...)") supaya bisa dipakai dengan opacity di Tailwind */
+@layer base {
+  :root {
+    --color-surface: 255 255 255;            /* white */
+    --color-surface-subtle: 248 250 252;     /* slate-50 */
+    --color-surface-muted: 241 245 249;      /* slate-100 */
+    --color-border: 226 232 240;             /* slate-200 */
+    --color-content: 15 23 42;               /* slate-900 */
+    --color-content-muted: 71 85 105;        /* slate-600 */
+    --color-content-subtle: 148 163 184;     /* slate-400 */
+  }
+  .dark {
+    --color-surface: 15 23 42;               /* slate-900 */
+    --color-surface-subtle: 2 6 23;          /* slate-950 */
+    --color-surface-muted: 30 41 59;         /* slate-800 */
+    --color-border: 51 65 85;                /* slate-700 */
+    --color-content: 241 245 249;            /* slate-100 */
+    --color-content-muted: 148 163 184;      /* slate-400 */
+    --color-content-subtle: 100 116 139;     /* slate-500 */
+  }
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-surface-subtle text-content transition-colors duration-200;
+  }
+  ::selection {
+    @apply bg-brand-500/30;
+  }
+  /* Scrollbar halus */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply bg-surface-border rounded-full;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-content-subtle;
+  }
+}
+
 @layer components {
+  /* === Buttons === */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+           text-sm font-medium transition-all duration-150
+           focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:ring-offset-0
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none
+           active:scale-[0.98];
   }
   .btn-primary {
-    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+    @apply btn bg-brand-600 text-white hover:bg-brand-700
+           dark:bg-brand-500 dark:hover:bg-brand-600
+           shadow-soft;
   }
   .btn-secondary {
-    @apply btn bg-white border border-slate-300 text-slate-700 hover:bg-slate-100;
+    @apply btn bg-surface text-content border border-surface-border
+           hover:bg-surface-muted;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-content-muted hover:bg-surface-muted hover:text-content;
   }
   .btn-danger {
-    @apply btn bg-red-600 text-white hover:bg-red-700;
+    @apply btn bg-red-600 text-white hover:bg-red-700
+           dark:bg-red-500 dark:hover:bg-red-600;
   }
   .btn-success {
-    @apply btn bg-emerald-600 text-white hover:bg-emerald-700;
+    @apply btn bg-emerald-600 text-white hover:bg-emerald-700
+           dark:bg-emerald-500 dark:hover:bg-emerald-600;
   }
+
+  /* === Form === */
   .input {
-    @apply w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent;
+    @apply w-full px-3 py-2 rounded-lg text-sm
+           bg-surface text-content placeholder-content-subtle
+           border border-surface-border
+           transition-all duration-150
+           focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20
+           disabled:opacity-60;
   }
-  .card {
-    @apply bg-white rounded-xl shadow-sm border border-slate-200 p-5;
+  textarea.input {
+    @apply leading-relaxed;
   }
   .label {
-    @apply block text-sm font-medium text-slate-700 mb-1;
+    @apply block text-xs font-medium text-content-muted mb-1.5 uppercase tracking-wider;
   }
+
+  /* === Card === */
+  .card {
+    @apply bg-surface border border-surface-border rounded-xl p-5
+           shadow-soft transition-colors duration-200;
+  }
+  .card-hover {
+    @apply card hover:border-brand-500/60 hover:shadow-md transition-all duration-200 cursor-pointer;
+  }
+
+  /* === Badges === */
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full
+           text-xs font-medium ring-1 ring-inset;
   }
+  .badge-neutral { @apply badge bg-surface-muted text-content-muted ring-surface-border; }
+  .badge-info    { @apply badge bg-brand-50 text-brand-700 ring-brand-200 dark:bg-brand-500/10 dark:text-brand-300 dark:ring-brand-500/30; }
+  .badge-success { @apply badge bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-300 dark:ring-emerald-500/30; }
+  .badge-warn    { @apply badge bg-amber-50 text-amber-700 ring-amber-200 dark:bg-amber-500/10 dark:text-amber-300 dark:ring-amber-500/30; }
+  .badge-danger  { @apply badge bg-red-50 text-red-700 ring-red-200 dark:bg-red-500/10 dark:text-red-300 dark:ring-red-500/30; }
+  .badge-purple  { @apply badge bg-purple-50 text-purple-700 ring-purple-200 dark:bg-purple-500/10 dark:text-purple-300 dark:ring-purple-500/30; }
+
+  /* === Table === */
+  .table {
+    @apply w-full text-sm;
+  }
+  .table thead th {
+    @apply text-left text-xs font-medium text-content-muted uppercase tracking-wider
+           border-b border-surface-border py-3 px-2;
+  }
+  .table tbody tr {
+    @apply border-b border-surface-border last:border-0
+           hover:bg-surface-muted/50 transition-colors;
+  }
+  .table tbody td {
+    @apply py-3 px-2;
+  }
+
+  /* === Sidebar nav item === */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium
+           text-content-muted hover:bg-surface-muted hover:text-content
+           transition-colors duration-150;
+  }
+  .nav-item-active {
+    @apply bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-300;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
 }

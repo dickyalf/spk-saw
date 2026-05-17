@@ -18,9 +18,9 @@ export default function PelamarDashboard() {
       <h1 className="text-2xl font-bold">Halo, selamat datang!</h1>
 
       {!cv && (
-        <div className="card border-amber-300 bg-amber-50">
-          <div className="font-semibold text-amber-700">⚠️ CV Anda belum lengkap</div>
-          <p className="text-sm text-amber-700 mt-1">
+        <div className="card border-amber-300 dark:border-amber-500/40 bg-amber-50 dark:bg-amber-500/10">
+          <div className="font-semibold text-amber-700 dark:text-amber-400">⚠️ CV Anda belum lengkap</div>
+          <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">
             Lengkapi CV Anda dulu sebelum melamar pekerjaan.
           </p>
           <Link to="/pelamar/profil" className="btn-primary mt-3 inline-flex">
@@ -42,17 +42,17 @@ export default function PelamarDashboard() {
             <Link
               key={l._id}
               to={`/pelamar/lamaran/${l._id}`}
-              className="flex justify-between items-center p-3 hover:bg-slate-50 rounded-lg"
+              className="flex justify-between items-center p-3 hover:bg-surface-subtle rounded-lg"
             >
               <div>
                 <div className="font-medium">{l.lowongan?.judul}</div>
-                <div className="text-xs text-slate-500">{l.lowongan?.posisi}</div>
+                <div className="text-xs text-content-muted">{l.lowongan?.posisi}</div>
               </div>
               <StatBadge status={l.statusKeseluruhan} />
             </Link>
           ))}
           {lamaran.length === 0 && (
-            <div className="text-slate-500 text-sm">Belum ada lamaran</div>
+            <div className="text-content-muted text-sm">Belum ada lamaran</div>
           )}
         </div>
       </div>
@@ -67,7 +67,7 @@ function Stat({ icon, label, value, to }) {
         {icon}
       </div>
       <div>
-        <div className="text-sm text-slate-500">{label}</div>
+        <div className="text-sm text-content-muted">{label}</div>
         <div className="text-2xl font-bold">{value}</div>
       </div>
     </Link>

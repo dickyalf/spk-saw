@@ -25,7 +25,7 @@ export default function DetailLamaran() {
   return (
     <div className="max-w-3xl space-y-4">
       <div className="card">
-        <div className="text-sm text-slate-500">{lamaran.lowongan?.perusahaan?.namaPerusahaan}</div>
+        <div className="text-sm text-content-muted">{lamaran.lowongan?.perusahaan?.namaPerusahaan}</div>
         <h1 className="text-2xl font-bold">{lamaran.lowongan?.judul}</h1>
         <div className="mt-2"><StatBadge status={lamaran.statusKeseluruhan} /></div>
       </div>
@@ -46,18 +46,18 @@ export default function DetailLamaran() {
                 ? 'text-emerald-600'
                 : tahap.status === 'tidak_lolos'
                 ? 'text-red-600'
-                : 'text-slate-400';
+                : 'text-content-subtle';
             return (
               <div key={t.key} className="flex items-start gap-3">
                 <Icon className={color} />
                 <div className="flex-1">
                   <div className="font-medium">{t.label}</div>
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-content-muted">
                     <StatBadge status={tahap.status || 'belum'} />
                     {tahap.nilai != null && <span className="ml-2">Nilai: <b>{tahap.nilai}</b></span>}
                   </div>
                   {tahap.catatan && (
-                    <div className="text-sm text-slate-600 mt-1">{tahap.catatan}</div>
+                    <div className="text-sm text-content-muted mt-1">{tahap.catatan}</div>
                   )}
                 </div>
                 {t.key === 'tes' && lamaran.statusKeseluruhan === 'tes' && (

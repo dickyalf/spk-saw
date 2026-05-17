@@ -58,12 +58,12 @@ export default function SoalTesList() {
         {items.map((s) => (
           <div key={s._id} className="card flex justify-between items-start">
             <div className="flex-1">
-              <div className="text-xs uppercase text-slate-400 mb-1">
+              <div className="text-xs uppercase text-content-subtle mb-1">
                 {s.jenis} · {s.kategori} · bobot {s.bobotNilai}
               </div>
               <div className="font-medium">{s.pertanyaan}</div>
               {s.jenis === 'pilihan_ganda' && (
-                <ul className="text-sm text-slate-600 mt-2 space-y-0.5">
+                <ul className="text-sm text-content-muted mt-2 space-y-0.5">
                   {s.pilihan.map((p, i) => (
                     <li key={i} className={p.kunci ? 'text-emerald-600 font-medium' : ''}>
                       {String.fromCharCode(65 + i)}. {p.teks} {p.kunci && '✓'}
@@ -83,13 +83,13 @@ export default function SoalTesList() {
           </div>
         ))}
         {items.length === 0 && (
-          <div className="text-center text-slate-500 py-8">Belum ada soal</div>
+          <div className="text-center text-content-muted py-8">Belum ada soal</div>
         )}
       </div>
 
       {editor && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+          <div className="bg-surface rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center p-4 border-b">
               <h3 className="font-semibold">{editor._id ? 'Edit Soal' : 'Tambah Soal'}</h3>
               <button onClick={() => setEditor(null)}>
