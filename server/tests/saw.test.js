@@ -15,7 +15,7 @@ describe('SAW Service', () => {
     const total = r.reduce((s, x) => s + x.bobot, 0);
     expect(total).toBeCloseTo(1, 5);
   });
-
+ 
   test('normalisasi matriks benefit: rij = Xij / max', () => {
     const m = [
       [80, 70],
